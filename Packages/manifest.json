@@ -1,11 +1,9 @@
 {
   "dependencies": {
-    "com.unity.2d.sprite": "1.0.0",
-    "com.unity.2d.tilemap.extras": "https://github.com/Unity-Technologies/2d-extras.git#master",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.1.3",
-    "com.unity.render-pipelines.high-definition": "7.1.6",
+    "com.unity.render-pipelines.universal": "7.1.6",
     "com.unity.test-framework": "1.1.3",
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.2.6",
@@ -41,11 +39,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "lock": {
-    "com.unity.2d.tilemap.extras": {
-      "revision": "master",
-      "hash": "a95c07ac963132f767842418cb3b7c260d9c8cad"
-    }
   }
 }
