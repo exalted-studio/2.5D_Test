@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7194228904800325402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2cd13ef9d301848bfe143e6c000cb8, type: 3}
-  m_Name: SSAOFeature
-  m_EditorClassIdentifier: 
-  settings:
-    blitShader: {fileID: 4800000, guid: 1a66be4fb3155494bb3143b2f7a6d312, type: 3}
-    noiseTexture: {fileID: 2800000, guid: bc5f6be5c0b94574db64444d972a200c, type: 3}
-    intensity: 2.39
-    radius: 0.13
-    area: 2
-    samples: 18
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
   m_Name: ForwardRenderer
   m_EditorClassIdentifier: 
-  m_RendererFeatures:
-  - {fileID: -7194228904800325402}
+  m_RendererFeatures: []
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}

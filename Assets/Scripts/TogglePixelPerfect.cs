@@ -20,6 +20,12 @@ public class TogglePixelPerfect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             perfectCamera.enabled = !perfectCamera.enabled;
+            Debug.Log("Pixel Perfect Camera: " + perfectCamera.enabled);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }

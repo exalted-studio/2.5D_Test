@@ -16,6 +16,6 @@ public class ExampleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = startPosition + new Vector3(Mathf.Sin(Time.time * 5), 0, 0);
+        transform.position = startPosition + new Vector3(Mathf.Sin(Time.time * 0.5f), 0, 0);
     }
 }
