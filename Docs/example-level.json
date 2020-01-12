@@ -1,0 +1,65 @@
+{
+  "version": 1, // save file version to support loading outdated versions
+  "width": 5, // width of map/level/room
+  "height": 5, // height of map/level/room
+  "tiles": [
+    // list of all tiles
+    {
+      "id": 0, // unique ID
+      "x": 0, // x position in grid
+      "y": 0, // y position in grid
+      "sprite": "floor_3", // name of sprite to use (without extension)
+      "properties": [
+        // custom properties for events, custom scripts, etc
+        {
+          "name": "something", // name of property
+          "type": "int", // type of property (string, int, float, bool, etc)
+          "value": 5 // value
+        }
+      ],
+      "modifiers": {
+        // modify properties of tile (friction, speed, collision, etc)
+        "friction": 5, // set friction to 5
+        "frictionMult": 0.5, // multiply friction by 0.5
+        "speedMult": 2 // multiply speed by 2
+      }
+    },
+    {
+      "id": 0,
+      "x": 0,
+      "y": 0,
+      "sprite": "wall_0"
+    },
+    {
+      "id": 1,
+      "x": 0,
+      "y": 1,
+      "sprite": "wall_0",
+      "modifiers": {
+        "collision": false
+      }
+    },
+    {
+      "id": 5,
+      "x": 1,
+      "y": 1,
+      "sprite": "floor_3",
+      "properties": {
+        "name": "something",
+        "type": "int",
+        "value": 5
+      }
+    },
+    {
+      "id": 5,
+      "x": 1,
+      "y": 1,
+      "sprite": "floor_ice_0",
+      "modifiers": {
+        "friction": 5,
+        "frictionMult": 0.5,
+        "speedMult": 2
+      }
+    }
+  ]
+}
