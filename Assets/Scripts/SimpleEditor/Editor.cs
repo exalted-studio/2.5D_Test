@@ -33,11 +33,10 @@ public class Editor : MonoBehaviour
                 float posY = y * tileSize * sqrt2;
                 float posZ = 0;
                 float rotX = 0;
-                bool wall = false;
+                bool wall = (Random.value > 0.8);
 
-                if (Random.value > 0.8)
+                if (wall)
                 {
-                    wall = true;
                     posY -= 0.5f;
                     posZ -= 0.5f;
                     rotX = -90;
