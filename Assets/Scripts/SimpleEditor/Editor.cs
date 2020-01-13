@@ -8,6 +8,8 @@ public class Editor : MonoBehaviour
     public int gridHeight;
     public int tileSize;
 
+    public float wallChance = 0.9f;
+
     public GameObject wallPrefab;
     public GameObject floorPrefab;
 
@@ -25,7 +27,21 @@ public class Editor : MonoBehaviour
     {
         tiles = new GameObject[gridWidth, gridHeight];
         tilesTest = new Tile.Data[gridWidth * gridHeight];
+        Generate();
+    }
 
+    void Clear()
+    {
+        foreach (GameObject go in tiles)
+        {
+            GameObject.Destroy(go);
+        }
+        tiles = new GameObject[gridWidth, gridHeight];
+        tilesTest = new Tile.Data[gridWidth * gridHeight];
+    }
+
+    void Generate()
+    {
         int i = 0;
         for (int x = 0; x < gridWidth; x++)
         {
@@ -35,7 +51,7 @@ public class Editor : MonoBehaviour
                 float posY = y * tileSize * sqrt2;
                 float posZ = 0;
                 float rotX = 0;
-                bool wall = (Random.value > 0.9);
+                bool wall = (Random.value > wallChance);
 
                 if (wall)
                 {
@@ -56,14 +72,6 @@ public class Editor : MonoBehaviour
                 }
                 // newTile.transform.localScale = new Vector3(1, (wall ? 2 : 1) * sqrt2, 1);
 
-                Tile tile = newTile.GetComponent<Tile>();
-                tile.data = new Tile.Data()
-                {
-                    id = i,
-                    x = x,
-                    y = y
-                };
-
                 newTile.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", availableSprites[Random.Range(0, availableSprites.Length)]);
                 if (wall)
                 {
@@ -71,20 +79,38 @@ public class Editor : MonoBehaviour
                     newTile.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", wallTopSprite);
 
                 }
+
+                Tile tile = newTile.GetComponent<Tile>();
+                tile.data = new Tile.Data()
+                {
+                    id = i,
+                    x = x,
+                    y = y,
+                    sprite = newTile.GetComponent<MeshRenderer>().material.mainTexture.name
+                };
+
                 tiles[x, y] = newTile;
                 tilesTest[i] = tile.data;
+
+                string json = JsonUtility.ToJson(tilesTest[i]);
+                Debug.Log(json);
+
                 Debug.Log(i);
                 i++;
             }
         }
 
-        string json = JsonUtility.ToJson(tilesTest);
-        Debug.Log(json);
+        // string json = JsonUtility.ToJson(tilesTest);
+        // Debug.Log(json);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Clear();
+            Generate();
+        }
     }
 }
