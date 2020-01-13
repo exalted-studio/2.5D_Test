@@ -167,6 +167,7 @@ MonoBehaviour:
   gridWidth: 10
   gridHeight: 10
   tileSize: 1
+  wallChance: 0.9
   wallPrefab: {fileID: 4398174432307443970, guid: 1e8e6599debf38447a00910b49aefe82,
     type: 3}
   floorPrefab: {fileID: 4398174432307443970, guid: 941ffbb476ddfa941b6d84e916231f74,
@@ -192,7 +193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &769087033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275193441}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -645,7 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
+  m_AmplitudeGain: 10
   m_FrequencyGain: 0.02
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1928378011
