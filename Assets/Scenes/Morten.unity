@@ -170,10 +170,11 @@ MonoBehaviour:
   tilePrefab: {fileID: 4398174432307443970, guid: 941ffbb476ddfa941b6d84e916231f74,
     type: 3}
   availableSprites:
+  - {fileID: 2800000, guid: b896252d81fa1f147a3a79d418a4ca73, type: 3}
   - {fileID: 2800000, guid: 679378ae8c9ffce49bca0322eed9fc64, type: 3}
-  - {fileID: 2800000, guid: 1ac3c065083269641ba0edddf79af640, type: 3}
   - {fileID: 2800000, guid: 6c610cdff79981a4db659b8e8ee46298, type: 3}
   - {fileID: 2800000, guid: 57d737a2d168964499171648aa05a952, type: 3}
+  - {fileID: 2800000, guid: 1ac3c065083269641ba0edddf79af640, type: 3}
   wallSprite: {fileID: 2800000, guid: 04e101db4ce3b4b408c356dac4b92366, type: 3}
 --- !u!1 &1275193441
 GameObject:
