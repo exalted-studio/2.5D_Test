@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public float testValue = 5.0f;
-    public TileData data;
+    public Data data;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
     }
 
     [Serializable]
-    public class TileData
+    public class Data
     {
         public int id;
         public int x;

@@ -8,13 +8,15 @@ public class Editor : MonoBehaviour
     public int gridHeight;
     public int tileSize;
 
-    public GameObject tilePrefab;
+    public GameObject wallPrefab;
+    public GameObject floorPrefab;
 
     public Texture2D[] availableSprites;
     public Texture2D wallSprite;
+    public Texture2D wallTopSprite;
 
     private GameObject[,] tiles;
-    private Tile[] tilesTest;
+    private Tile.Data[] tilesTest;
 
     private float sqrt2 = Mathf.Sqrt(2);
 
@@ -22,7 +24,7 @@ public class Editor : MonoBehaviour
     void Start()
     {
         tiles = new GameObject[gridWidth, gridHeight];
-        tilesTest = new Tile[gridWidth * gridHeight];
+        tilesTest = new Tile.Data[gridWidth * gridHeight];
 
         int i = 0;
         for (int x = 0; x < gridWidth; x++)
@@ -33,21 +35,29 @@ public class Editor : MonoBehaviour
                 float posY = y * tileSize * sqrt2;
                 float posZ = 0;
                 float rotX = 0;
-                bool wall = (Random.value > 0.8);
+                bool wall = (Random.value > 0.9);
 
                 if (wall)
                 {
-                    posY -= 0.5f;
-                    posZ -= 0.5f;
+                    posY -= sqrt2 / 2;
+                    posZ -= sqrt2;
                     rotX = -90;
                 }
 
                 Quaternion rot = Quaternion.Euler(new Vector3(rotX, 0, 0));
-                GameObject newTile = Instantiate(tilePrefab, new Vector3(posX, posY, posZ), rot);
-                newTile.transform.localScale = new Vector3(1, sqrt2, 1);
+                GameObject newTile;
+                if (wall)
+                {
+                    newTile = Instantiate(wallPrefab, new Vector3(posX, posY, posZ), rot);
+                }
+                else
+                {
+                    newTile = Instantiate(floorPrefab, new Vector3(posX, posY, posZ), rot);
+                }
+                // newTile.transform.localScale = new Vector3(1, (wall ? 2 : 1) * sqrt2, 1);
 
                 Tile tile = newTile.GetComponent<Tile>();
-                tile.data = new Tile.TileData()
+                tile.data = new Tile.Data()
                 {
                     id = i,
                     x = x,
@@ -58,9 +68,11 @@ public class Editor : MonoBehaviour
                 if (wall)
                 {
                     newTile.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", wallSprite);
+                    newTile.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", wallTopSprite);
+
                 }
                 tiles[x, y] = newTile;
-                tilesTest[i] = tile;
+                tilesTest[i] = tile.data;
                 Debug.Log(i);
                 i++;
             }
